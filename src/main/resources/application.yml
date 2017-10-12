@@ -1,0 +1,12 @@
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  config-location: classpath:META-INF/mybatis-config.xml
+spring:
+  datasource:
+    url: jdbc:mysql://10.1.9.47:3306/zeus?useUnicode=true&characterEncoding=utf8&autoReconnect=true
+    username: qiji
+    password: qiji,123
+server:
+  port: 8080
+  context-path: /
+
