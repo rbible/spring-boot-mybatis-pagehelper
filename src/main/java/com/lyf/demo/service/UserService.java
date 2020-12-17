@@ -14,13 +14,16 @@ import org.springframework.stereotype.Service;
 @Service("userService")
 public class UserService {
 
-	@Autowired
-	private UserMapper userMapper;
+    @Autowired
+    private UserMapper userMapper;
 
-	public PageInfo<User> paging(int page){
-		PageHelper.startPage(page, 20);
-		Page<User> dbResult = userMapper.paging(null);
-		PageInfo<User> result = new PageInfo<>(dbResult);
-		return result;
-	}
+    public PageInfo<User> paging(int page, int size) {
+        if (size == 0) {
+            size = 5;
+        }
+        PageHelper.startPage(page, size);
+        Page<User> dbResult = userMapper.paging(null);
+        PageInfo<User> result = new PageInfo<>(dbResult);
+        return result;
+    }
 }

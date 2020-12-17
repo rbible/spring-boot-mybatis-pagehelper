@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	@GetMapping("paging")
-	public PageInfo<User> paging(@RequestParam("page") int page){
-		return userService.paging(page);
-	}
+    @GetMapping("paging")
+    public PageInfo<User> paging(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return userService.paging(page, size);
+    }
 }
